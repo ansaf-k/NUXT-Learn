@@ -1,18 +1,10 @@
-<script setup lang="ts">
-const counter = useCounter();
-const nuxtApp = useNuxtApp()
-console.log(nuxtApp);
+<script setup>
+const { data } = await useFetch("/api/hello")
+console.log(data);
 </script>
 
 <template>
     <div>
-        Counter: {{ counter }}
-        <button @click="counter++">
-            +
-        </button>
-        <button @click="counter--">
-            -
-        </button>
-        <Counter />
+        <pre>{{ data }}</pre>
     </div>
 </template>
